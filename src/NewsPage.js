@@ -25,9 +25,12 @@ const NewsPage = () => {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`http://hn.algolia.com/api/v1/search?`, {
-        params: { page: currentPage, query: searchQuery },
-      });
+      const { data } = await axios.get(
+        `https://hn.algolia.com/api/v1/search?`,
+        {
+          params: { page: currentPage, query: searchQuery },
+        }
+      );
       const { hits, nbPages } = data;
       setArticles(hits);
       setTotalPages(nbPages);
