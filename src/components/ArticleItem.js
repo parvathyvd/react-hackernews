@@ -7,26 +7,29 @@ const ArticleItem = ({ article, onDelete }) => {
     onDelete(id);
   };
   return (
-    <Card>
-      <h3>{article.title}</h3>
-      <p className="article-author">
-        {article.points} by {article.author} | {article.num_comments}
-      </p>
+    article.title && (
+      <Card>
+        <h3>{article.title}</h3>
 
-      <div className="btn-block">
-        <button className="btn-more">
-          <a href={article.url} target="_blank" rel="noreferrer">
-            Read More
-          </a>
-        </button>
-        <button
-          className="btn-remove"
-          onClick={() => onRemoveHandler(article.objectID)}
-        >
-          Remove
-        </button>
-      </div>
-    </Card>
+        <p className="article-author">
+          {article.points} by {article.author} | {article.num_comments}
+        </p>
+
+        <div className="btn-block">
+          <button className="btn-more">
+            <a href={article.url} target="_blank" rel="noreferrer">
+              Read More
+            </a>
+          </button>
+          <button
+            className="btn-remove"
+            onClick={() => onRemoveHandler(article.objectID)}
+          >
+            Remove
+          </button>
+        </div>
+      </Card>
+    )
   );
 };
 
